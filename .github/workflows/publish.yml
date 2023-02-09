@@ -7,7 +7,7 @@ on:
     - cron: '0 0 1 * *'
 
 jobs:
-  tests:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,3 +21,7 @@ jobs:
         run: |
           docker build . --tag ghcr.io/mikeeq/synergy-serial:latest
           docker push ghcr.io/mikeeq/synergy-serial:latest
+
+# Info: to push images to your top-level organizational registry, you need to allow it
+# Repository --> Settings --> Actions --> General --> Workflow permissions --> Read and write permissions (choose) --> Save (click)
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions
